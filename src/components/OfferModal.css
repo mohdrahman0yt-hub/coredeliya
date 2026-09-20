@@ -1,0 +1,241 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 22, 40, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 16px;
+}
+
+.modal-content {
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -12px rgba(10, 22, 40, 0.35);
+  max-width: 520px;
+  width: calc(100% - 32px);
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  position: relative;
+  padding: 2.5rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: var(--off-white);
+  border: 1px solid var(--gray-light);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--navy-dark);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background: var(--brand-purple);
+  border-color: var(--brand-purple);
+  color: var(--white);
+  transform: rotate(90deg);
+}
+
+.modal-close:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.modal-logo {
+  height: 42px;
+  width: auto;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--navy-dark);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.modal-subtitle {
+  font-size: 1rem;
+  color: var(--gray-dark);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--navy-dark);
+  letter-spacing: 0.25px;
+}
+
+.form-input {
+  padding: 1rem 1rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--navy-dark);
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #B23A93;
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(178, 58, 147, 0.1);
+  caret-color: #B23A93;
+}
+
+.form-input::placeholder {
+  color: var(--gray);
+}
+
+.modal-submit {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  background: linear-gradient(135deg, #8e2188 0%, #c43b8e 42%, #e56b6a 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(146, 39, 143, 0.25);
+}
+
+.modal-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(201, 162, 39, 0.35);
+}
+
+.modal-submit:active {
+  transform: translateY(0);
+}
+
+.form-privacy {
+  font-size: 0.875rem;
+  color: var(--gray);
+  text-align: center;
+  margin: 0.5rem 0 0;
+  line-height: 1.5;
+}
+
+.modal-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.success-icon {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, var(--gold), #d4a017);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.25rem;
+  color: white;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 24px rgba(201, 162, 39, 0.3);
+}
+
+@media (max-width: 768px) {
+  .modal-backdrop {
+    padding: 12px;
+  }
+
+  .modal-content {
+    padding: 2rem 1.5rem;
+    max-height: calc(100vh - 24px);
+    width: calc(100% - 24px);
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
+  }
+
+  .modal-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .modal-form {
+    gap: 1.25rem;
+  }
+
+  .modal-close {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-backdrop {
+    padding: 8px;
+  }
+
+  .modal-content {
+    padding: 1.75rem 1.25rem;
+    width: calc(100% - 16px);
+    max-height: calc(100vh - 16px);
+  }
+
+  .modal-title {
+    font-size: 1.375rem;
+  }
+
+  .modal-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .form-input {
+    padding: 0.875rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .modal-submit {
+    padding: 0.875rem;
+    font-size: 0.95rem;
+  }
+
+  .modal-close {
+    width: 32px;
+    height: 32px;
+  }
+}

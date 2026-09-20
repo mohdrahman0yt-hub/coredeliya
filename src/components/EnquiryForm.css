@@ -1,0 +1,132 @@
+.enquiry-form-section {
+  position: relative;
+  margin-top: -120px;
+  padding-bottom: 5rem;
+  z-index: 10;
+}
+
+.enquiry-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 3rem;
+}
+
+.enquiry-card-content {
+  text-align: center;
+}
+
+.enquiry-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--navy-dark);
+  margin-bottom: 0.75rem;
+}
+
+.enquiry-subtitle {
+  font-size: 1rem;
+  color: var(--gray);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.enquiry-form {
+  text-align: left;
+}
+
+.enquiry-submit {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.enquiry-privacy {
+  font-size: 0.875rem;
+  color: var(--gray);
+  text-align: center;
+  margin-top: 1.5rem;
+  line-height: 1.5;
+}
+
+.enquiry-success {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--ocean-light) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 2.5rem;
+  color: var(--white);
+  font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+  .enquiry-form-section {
+    margin-top: -100px;
+  }
+
+  .enquiry-card {
+    padding: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .enquiry-form-section {
+    margin-top: -80px;
+    padding-bottom: 3rem;
+  }
+
+  .enquiry-card {
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+  }
+
+  .enquiry-title {
+    font-size: 1.75rem;
+  }
+
+  .enquiry-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-input,
+  .form-select {
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .enquiry-privacy {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .enquiry-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .enquiry-title {
+    font-size: 1.5rem;
+  }
+
+  .form-input,
+  .form-select {
+    padding: 0.7rem 0.9rem;
+    font-size: 0.9rem;
+  }
+}

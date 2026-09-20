@@ -1,0 +1,133 @@
+.cruise-options {
+  background: #fff;
+  padding: 5.5rem 0;
+  scroll-margin-top: 118px;
+}
+
+.cruise-options .section-title span {
+  font-style: italic;
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.cruise-options-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.cruise-option-card {
+  background: #fff;
+  border-radius: 22px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(146, 39, 143, 0.08);
+  box-shadow: 0 10px 28px rgba(40, 16, 40, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.cruise-option-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(40, 16, 40, 0.12);
+}
+
+.cruise-card-image-wrapper {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.cruise-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.cruise-option-card:hover .cruise-card-image {
+  transform: scale(1.05);
+}
+
+.cruise-card-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--brand-purple);
+}
+
+.cruise-card-content {
+  padding: 1.35rem 1.35rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cruise-card-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.7rem;
+  line-height: 1.25;
+}
+
+.cruise-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1rem;
+  margin-bottom: 0.85rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.cruise-card-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.cruise-card-description {
+  font-size: 0.94rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 1.2rem;
+  flex: 1;
+}
+
+.cruise-card-cta {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: none;
+  border-radius: 12px;
+  background: #f7eef4;
+  color: var(--brand-purple);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cruise-option-card:hover .cruise-card-cta {
+  background: var(--brand-gradient);
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .cruise-options-grid { grid-template-columns: 1fr; }
+  .cruise-options { padding: 3.5rem 0; }
+  .cruise-card-image-wrapper { height: 200px; }
+}

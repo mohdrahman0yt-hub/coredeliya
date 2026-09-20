@@ -1,0 +1,50 @@
+.mobile-sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  gap: 0.65rem;
+  padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-sticky-cta-button {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.9rem 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.mobile-sticky-connect {
+  background: #fff;
+  color: #92278f;
+  border: 1.5px solid #92278f;
+  -webkit-tap-highlight-color: rgba(146, 39, 143, 0.12);
+  touch-action: manipulation;
+}
+
+.mobile-sticky-offer {
+  background: linear-gradient(135deg, #8e2188 0%, #c43b8e 42%, #e56b6a 100%);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(146, 39, 143, 0.25);
+}
+
+@media (min-width: 769px) {
+  .mobile-sticky-cta {
+    display: none;
+  }
+}

@@ -1,0 +1,91 @@
+.cruise-experience {
+  background: var(--off-white);
+  scroll-margin-top: 80px;
+}
+
+.experience-image {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.experience-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 500px;
+}
+
+.experience-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.experience-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 600;
+  color: var(--navy-dark);
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.experience-features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.experience-feature {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: var(--gray-dark);
+}
+
+.feature-icon {
+  color: var(--ocean-blue);
+  flex-shrink: 0;
+}
+
+.experience-cta {
+  align-self: flex-start;
+}
+
+@media (max-width: 1024px) {
+  .experience-image img {
+    min-height: 400px;
+  }
+
+  .experience-title {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .experience-image img {
+    min-height: 300px;
+  }
+
+  .experience-content {
+    padding: 1.5rem 0;
+  }
+
+  .experience-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .experience-feature {
+    font-size: 0.95rem;
+  }
+
+  .experience-cta {
+    width: 100%;
+  }
+}
