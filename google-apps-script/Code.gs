@@ -15,13 +15,14 @@ function doPost(e) {
     const destination = (e && e.parameter && e.parameter.destination) || ''
     const name = (e && e.parameter && e.parameter.name) || ''
     const email = (e && e.parameter && e.parameter.email) || ''
+    const phone = (e && e.parameter && e.parameter.phone) || ''
 
-    if (!destination || !name || !email) {
+    if (!destination || !name || !email || !phone) {
       return createResponse(false, 'Please fill all required fields.')
     }
 
-    // Columns: Destinations | Name | Email ID
-    sheet.appendRow([destination, name, email])
+    // Columns: Destinations | Name | Email ID | phone
+    sheet.appendRow([destination, name, email, phone])
 
     return createResponse(true, 'Form submitted successfully.')
   } catch (error) {

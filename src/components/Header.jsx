@@ -63,19 +63,25 @@ const Header = () => {
             <strong>Book Now:</strong>
             <a href="tel:02268811111">
               <Phone size={13} strokeWidth={2.4} />
-              022-68811111
+              9402325828
             </a>
           </span>
-          <a className="topbar-item topbar-whatsapp" href="https://wa.me/917738850000" target="_blank" rel="noopener noreferrer">
+          <a className="topbar-item topbar-whatsapp" href="https://wa.me/919402325828" target="_blank" rel="noopener noreferrer">
             <WhatsAppIcon />
-            +91 7738850000
+            +91 9402325828
           </a>
           <span className="topbar-divider" aria-hidden="true" />
           <span className="topbar-item">
             <strong>For Group Enquiries:</strong>
-            <a href="tel:02265545206">
+            <a href="tel:9402325828">
               <Phone size={13} strokeWidth={2.4} />
-              022-65545206
+              9402325828
+            </a>
+          </span>
+          <span className="topbar-item">
+            <strong>Email:</strong>
+            <a href="mailto:booking@curudelliacruises.com">
+              booking@curudelliacruises.com
             </a>
           </span>
         </div>

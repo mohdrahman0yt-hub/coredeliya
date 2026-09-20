@@ -13,7 +13,8 @@ const Hero = () => {
   const [formData, setFormData] = useState({
     destination: '',
     name: '',
-    email: ''
+    email: '',
+    phone: '',
   })
 
   const destinations = ['Mumbai', 'Goa', 'Kochi', 'Lakshadweep', 'Maldives', 'Chennai']
@@ -29,7 +30,7 @@ const Hero = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (!formData.destination || !formData.name || !formData.email || isSubmitting) return
+    if (!formData.destination || !formData.name || !formData.email || !formData.phone || isSubmitting) return
 
     setIsSubmitting(true)
     setSubmitError('')
@@ -37,9 +38,10 @@ const Hero = () => {
       await submitLead({
         destination: formData.destination,
         name: formData.name,
-        email: formData.email
+        email: formData.email,
+        phone: formData.phone,
       })
-      setFormData({ destination: '', name: '', email: '' })
+      setFormData({ destination: '', name: '', email: '', phone: '' })
       setIsSubmitted(true)
     } catch (error) {
       setSubmitError(error.message || 'Could not send your details. Please try again.')
@@ -138,6 +140,23 @@ const Hero = () => {
                   className="filter-input"
                   placeholder="Your name"
                   value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              
+              <div className="field-divider" />
+
+              <div className="search-filter-field">
+                <label className="filter-label" htmlFor="hero-phone">Phone</label>
+                <input
+                  id="hero-phone"
+                  name="phone"
+                  type="text"
+                  className="filter-input"
+                  placeholder="Your phone"
+                  value={formData.phone}
                   onChange={handleChange}
                   required
                 />

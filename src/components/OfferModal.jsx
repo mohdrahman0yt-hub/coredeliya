@@ -8,7 +8,8 @@ const OfferModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
     destination: '',
     fullName: '',
-    email: ''
+    email: '',
+    phone: '',
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -17,7 +18,7 @@ const OfferModal = ({ isOpen, onClose }) => {
   // Reset form when modal opens
   useEffect(() => {
     if (isOpen) {
-      setFormData({ destination: '', fullName: '', email: '' })
+      setFormData({ destination: '', fullName: '', email: '', phone: '' })
       setIsSubmitted(false)
       setSubmitError('')
       setIsSubmitting(false)
@@ -49,7 +50,7 @@ const OfferModal = ({ isOpen, onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (!formData.destination || !formData.fullName || !formData.email || isSubmitting) return
+    if (!formData.destination || !formData.fullName || !formData.email || !formData.phone || isSubmitting) return
 
     setIsSubmitting(true)
     setSubmitError('')
@@ -57,9 +58,10 @@ const OfferModal = ({ isOpen, onClose }) => {
       await submitLead({
         destination: formData.destination,
         name: formData.fullName,
-        email: formData.email
+        email: formData.email,
+        phone: formData.phone
       })
-      setFormData({ destination: '', fullName: '', email: '' })
+      setFormData({ destination: '', fullName: '', email: '', phone: '' })
       setIsSubmitted(true)
     } catch (error) {
       setSubmitError(error.message || 'Could not send your details. Please try again.')
@@ -153,6 +155,22 @@ const OfferModal = ({ isOpen, onClose }) => {
                       className="form-input"
                       placeholder="Enter your name"
                       value={formData.fullName}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="fullName" className="form-label">
+                      Phone
+                    </label>
+                    <input
+                      type="text"
+                      id="phone"
+                      name="phone"
+                      className="form-input"
+                      placeholder="Enter your phone number"
+                      value={formData.phone}
                       onChange={handleChange}
                       required
                     />
