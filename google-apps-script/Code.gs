@@ -9,6 +9,8 @@ function doGet() {
 
 function doPost(e) {
   try {
+    console.log(JSON.stringify(e.parameter));
+    
     const spreadsheet = SpreadsheetApp.openById(SHEET_ID)
     const sheet = spreadsheet.getSheetByName(SHEET_NAME) || spreadsheet.getSheets()[0]
 
@@ -21,7 +23,7 @@ function doPost(e) {
       return createResponse(false, 'Please fill all required fields.')
     }
 
-    // Columns: Destinations | Name | Email ID | phone
+    // Columns: Destinations | Name | Email ID | Phone
     sheet.appendRow([destination, name, email, phone])
 
     return createResponse(true, 'Form submitted successfully.')
