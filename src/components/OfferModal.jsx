@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
 import { submitLead } from '../utils/submitLead'
 import './OfferModal.css'
 
 const OfferModal = ({ isOpen, onClose }) => {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     destination: '',
     fullName: '',
@@ -48,27 +50,65 @@ const OfferModal = ({ isOpen, onClose }) => {
     return () => document.removeEventListener('keydown', handleEscape)
   }, [isOpen, onClose])
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (!formData.destination || !formData.fullName || !formData.email || !formData.phone || isSubmitting) return
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault()
+  //   if (!formData.destination || !formData.fullName || !formData.email || !formData.phone || isSubmitting) return
 
-    setIsSubmitting(true)
-    setSubmitError('')
-    try {
-      await submitLead({
-        destination: formData.destination,
-        name: formData.fullName,
-        email: formData.email,
-        phone: formData.phone
-      })
-      setFormData({ destination: '', fullName: '', email: '', phone: '' })
-      setIsSubmitted(true)
-    } catch (error) {
-      setSubmitError(error.message || 'Could not send your details. Please try again.')
-    } finally {
-      setIsSubmitting(false)
-    }
+  //   setIsSubmitting(true)
+  //   setSubmitError('')
+  //   try {
+  //     await submitLead({
+  //       destination: formData.destination,
+  //       name: formData.fullName,
+  //       email: formData.email,
+  //       phone: formData.phone
+  //     })
+  //     setFormData({ destination: '', fullName: '', email: '', phone: '' })
+  //     setIsSubmitted(true)
+  //   } catch (error) {
+  //     setSubmitError(error.message || 'Could not send your details. Please try again.')
+  //   } finally {
+  //     setIsSubmitting(false)
+  //   }
+  // }
+
+
+  const handleSubmit = async (e) => {
+  e.preventDefault()
+
+  if (
+    !formData.destination ||
+    !formData.fullName ||
+    !formData.email ||
+    !formData.phone ||
+    isSubmitting
+  ) {
+    return
   }
+
+  setIsSubmitting(true)
+  setSubmitError('')
+
+  try {
+    await submitLead({
+      destination: formData.destination,
+      name: formData.fullName,
+      email: formData.email,
+      phone: formData.phone,
+    })
+
+    // Form successfully submitted → Thank You page
+    onClose()
+    navigate('/thank-you')
+
+  } catch (error) {
+    setSubmitError(
+      error.message || 'Could not send your details. Please try again.'
+    )
+  } finally {
+    setIsSubmitting(false)
+  }
+}
 
   const handleChange = (e) => {
     setFormData({
