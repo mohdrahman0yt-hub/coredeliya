@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { Phone } from 'lucide-react'
 import './MobileStickyCTA.css'
 
-const CALL_NUMBER = 'tel:+912268811111'
+const CALL_NUMBER = 'tel:+9402325828'
 
 const MobileStickyCTA = () => {
   const openOfferModal = () => {
