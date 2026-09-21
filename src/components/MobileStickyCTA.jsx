@@ -28,7 +28,7 @@ const MobileStickyCTA = () => {
         className="mobile-sticky-cta-button mobile-sticky-connect"
         href={CALL_NUMBER}
         onClick={startCall}
-        aria-label="Call +91 9402325828"
+        aria-label="Call 9402325828"
       >
         <Phone size={18} strokeWidth={2.3} />
         Connect
