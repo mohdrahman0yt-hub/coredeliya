@@ -2,8 +2,10 @@ import React, { useEffect, useRef, useState } from 'react'
 import { ChevronDown, X } from 'lucide-react'
 import { submitLead } from '../utils/submitLead'
 import './Hero.css'
+import { useNavigate } from 'react-router-dom'
 
 const Hero = () => {
+  const navigate = useNavigate()
   const videoRef = useRef(null)
   const [openDropdown, setOpenDropdown] = useState(null)
   const [isCallbackOpen, setIsCallbackOpen] = useState(false)
@@ -28,27 +30,65 @@ const Hero = () => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (!formData.destination || !formData.name || !formData.email || !formData.phone || isSubmitting) return
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault()
+  //   if (!formData.destination || !formData.name || !formData.email || !formData.phone || isSubmitting) return
 
-    setIsSubmitting(true)
-    setSubmitError('')
-    try {
-      await submitLead({
-        destination: formData.destination,
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-      })
-      setFormData({ destination: '', name: '', email: '', phone: '' })
-      setIsSubmitted(true)
-    } catch (error) {
-      setSubmitError(error.message || 'Could not send your details. Please try again.')
-    } finally {
-      setIsSubmitting(false)
-    }
+  //   setIsSubmitting(true)
+  //   setSubmitError('')
+  //   try {
+  //     await submitLead({
+  //       destination: formData.destination,
+  //       name: formData.name,
+  //       email: formData.email,
+  //       phone: formData.phone,
+  //     })
+  //     setFormData({ destination: '', name: '', email: '', phone: '' })
+  //     setIsSubmitted(true)
+  //   } catch (error) {
+  //     setSubmitError(error.message || 'Could not send your details. Please try again.')
+  //   } finally {
+  //     setIsSubmitting(false)
+  //   }
+  // }
+
+
+  const handleSubmit = async (e) => {
+  e.preventDefault()
+
+  if (
+    !formData.destination ||
+    !formData.name ||
+    !formData.email ||
+    !formData.phone ||
+    isSubmitting
+  ) {
+    return
   }
+
+  setIsSubmitting(true)
+  setSubmitError('')
+
+  try {
+    await submitLead({
+      destination: formData.destination,
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+    })
+
+    // Form successfully submitted
+    // Redirect to Thank You page
+    navigate('/thank-you')
+
+  } catch (error) {
+    setSubmitError(
+      error.message || 'Could not send your details. Please try again.'
+    )
+  } finally {
+    setIsSubmitting(false)
+  }
+}
 
   const openCallback = () => {
     if (window.openOfferModal) {
@@ -102,9 +142,7 @@ const Hero = () => {
             <h2 className="hero-form-title">Book your Journey Now</h2>
           </div>
 
-          {isSubmitted ? (
-            <p className="hero-form-success">Thank you. Our cruise expert will contact you shortly.</p>
-          ) : (
+           (
             <div className="search-filters-grid">
               <div className="search-filter-field">
                 <label className="filter-label">Where to?</label>
@@ -182,7 +220,7 @@ const Hero = () => {
                 {isSubmitting ? 'Sending...' : 'Get Cruise Offers'}
               </button>
             </div>
-          )}
+          )
           {submitError && <p className="hero-form-error">{submitError}</p>}
         </form>
       </div>
