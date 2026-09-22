@@ -50,29 +50,6 @@ const OfferModal = ({ isOpen, onClose }) => {
     return () => document.removeEventListener('keydown', handleEscape)
   }, [isOpen, onClose])
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault()
-  //   if (!formData.destination || !formData.fullName || !formData.email || !formData.phone || isSubmitting) return
-
-  //   setIsSubmitting(true)
-  //   setSubmitError('')
-  //   try {
-  //     await submitLead({
-  //       destination: formData.destination,
-  //       name: formData.fullName,
-  //       email: formData.email,
-  //       phone: formData.phone
-  //     })
-  //     setFormData({ destination: '', fullName: '', email: '', phone: '' })
-  //     setIsSubmitted(true)
-  //   } catch (error) {
-  //     setSubmitError(error.message || 'Could not send your details. Please try again.')
-  //   } finally {
-  //     setIsSubmitting(false)
-  //   }
-  // }
-
-
   const handleSubmit = async (e) => {
   e.preventDefault()
 
