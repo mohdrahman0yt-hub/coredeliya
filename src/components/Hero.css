@@ -349,3 +349,28 @@
     transform: translateY(12%);
   }
 }
+
+.field-error {
+  display: block;
+  margin-top: 5px;
+  color: #c43b3b;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.input-error {
+  border-color: #c43b3b !important;
+  box-shadow: 0 0 0 1px rgba(196, 59, 59, 0.15) !important;
+}
+
+.input-error:focus {
+  border-color: #c43b3b !important;
+  box-shadow: 0 0 0 2px rgba(196, 59, 59, 0.12) !important;
+}
+
+/* Dropdown validation */
+.filter-button.input-error {
+  border-color: #c43b3b !important;
+  box-shadow: 0 0 0 1px rgba(196, 59, 59, 0.15) !important;
+}
