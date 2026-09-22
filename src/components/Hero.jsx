@@ -30,29 +30,6 @@ const Hero = () => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault()
-  //   if (!formData.destination || !formData.name || !formData.email || !formData.phone || isSubmitting) return
-
-  //   setIsSubmitting(true)
-  //   setSubmitError('')
-  //   try {
-  //     await submitLead({
-  //       destination: formData.destination,
-  //       name: formData.name,
-  //       email: formData.email,
-  //       phone: formData.phone,
-  //     })
-  //     setFormData({ destination: '', name: '', email: '', phone: '' })
-  //     setIsSubmitted(true)
-  //   } catch (error) {
-  //     setSubmitError(error.message || 'Could not send your details. Please try again.')
-  //   } finally {
-  //     setIsSubmitting(false)
-  //   }
-  // }
-
-
   const handleSubmit = async (e) => {
   e.preventDefault()
 
@@ -224,15 +201,6 @@ const Hero = () => {
           {submitError && <p className="hero-form-error">{submitError}</p>}
         </form>
       </div>
-
-      {isCallbackOpen && (
-        <div className="callback-panel" role="dialog" aria-label="Request a callback">
-          <button className="callback-close" onClick={() => setIsCallbackOpen(false)} aria-label="Close">
-            <X size={18} />
-          </button>
-          <p>Our cruise expert will call you back shortly.</p>
-        </div>
-      )}
     </section>
   )
 }
